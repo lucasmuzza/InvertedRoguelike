@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3397211246729535504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b39611b2c6ae48547b885df8eb725b0c, type: 3}
+  m_Name: AttackOption
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: e586abed3cb2844499942720565e7a9d
+  position: {x: -86, y: 377.8}
+  blackboard:
+    agent: {fileID: 0}
+    target: {fileID: 0}
+    currentAttackDistance: 0
+  description: 
+  drawGizmos: 0
+  children: []
+  conditions:
+  - rid: 5930757619424952579
+  requireAllConditions: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 5930757619424952579
+      type: {class: DistanceChecker, ns: , asm: Assembly-CSharp}
+      data:
+        blackboard:
+          agent: {fileID: 0}
+          target: {fileID: 0}
+          currentAttackDistance: 0
+        weightWhenClose: 1
+        weightWhenFar: 0
+--- !u!114 &-2845305977642607446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7647042fb0b08ab4f9ccf4541964447f, type: 3}
+  m_Name: SequenceReasoner
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 4a6ad71a4e9597c45a4cc008892120af
+  position: {x: -53, y: 150}
+  blackboard:
+    agent: {fileID: 0}
+    target: {fileID: 0}
+    currentAttackDistance: 0
+  description: 
+  drawGizmos: 0
+  children:
+  - {fileID: -3397211246729535504}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 389dc15d7d5bed74faab742fa097ca3f, type: 3}
+  m_Name: teste
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: 577887521605109377}
+  treeState: 0
+  nodes:
+  - {fileID: 577887521605109377}
+  - {fileID: -2845305977642607446}
+  - {fileID: -3397211246729535504}
+  blackboard:
+    agent: {fileID: 0}
+    target: {fileID: 0}
+    currentAttackDistance: 0
+--- !u!114 &577887521605109377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb1c951875a619429cb582b1dde3115, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 67f4d0544c2330540b40b4fcc6f8899e
+  position: {x: 0, y: 0}
+  blackboard:
+    agent: {fileID: 0}
+    target: {fileID: 0}
+    currentAttackDistance: 0
+  description: 
+  drawGizmos: 0
+  child: {fileID: -2845305977642607446}
