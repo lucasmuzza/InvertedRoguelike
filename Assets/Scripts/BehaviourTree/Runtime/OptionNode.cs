@@ -11,6 +11,7 @@ public abstract class OptionNode: Node {
     protected override void OnStart(){
         foreach(Condition condition in conditions){
             condition.blackboard = blackboard;
+            condition.context = context;
         }
     }
 

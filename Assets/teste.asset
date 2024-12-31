@@ -15,7 +15,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: e586abed3cb2844499942720565e7a9d
-  position: {x: -86, y: 377.8}
+  position: {x: 0, y: 316}
   blackboard:
     agent: {fileID: 0}
     target: {fileID: 0}
@@ -53,7 +53,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 4a6ad71a4e9597c45a4cc008892120af
-  position: {x: -53, y: 150}
+  position: {x: 0, y: 155}
   blackboard:
     agent: {fileID: 0}
     target: {fileID: 0}

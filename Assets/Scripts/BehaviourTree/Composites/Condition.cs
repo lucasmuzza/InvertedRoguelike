@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Condition
 {
     [HideInInspector] public Blackboard blackboard;
+    [HideInInspector] public Context context;
 
     /// <summary>
     /// IsTrue checks if the implemented condition is true.

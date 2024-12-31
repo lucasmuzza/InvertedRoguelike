@@ -8,19 +8,18 @@ public class HealthChecker : Condition {
 
     public float lowHealthThreshold = 0.3f;
     public float midHealthThreshold = 0.7f;
+
+    private float healthPercentage;
+
     public override bool IsTrue(){
         if (blackboard.agent == null){
             Debug.LogError("Agent is not assigned in the Blackboard");
             return false;
         }
 
-        float currentHealth = blackboard.agent.GetComponent<Health>().currentHealth;
-        float maxHealth = blackboard.agent.GetComponent<Health>().maxHealth;
-
         // Calculate the percentage of health
-        float healthPercentage = currentHealth / maxHealth;
+        healthPercentage = context.enemyHealthHandler.health.GetHealthPercent();
 
-        // You can return true if you want to trigger a certain action when health meets some criteria
         if (healthPercentage <= lowHealthThreshold){
             return true; // Low health case
         }
@@ -37,20 +36,15 @@ public class HealthChecker : Condition {
             return 0f; // No agent found, return no weight
         }
 
-        float currentHealth = blackboard.agent.GetComponent<Health>().currentHealth;
-        float maxHealth = blackboard.agent.GetComponent<Health>().maxHealth;
-
-        float healthPercentage = currentHealth / maxHealth;
-
         // Assign weights based on health percentage
         if (healthPercentage <= lowHealthThreshold){
-            return weightLowHealth; // Low health
+            return weightLowHealth; 
         }
         else if (healthPercentage > lowHealthThreshold && healthPercentage <= midHealthThreshold){
-            return weightMidHealth; // Mid health
+            return weightMidHealth; 
         }
         else{
-            return weightFullHealth; // Full health
+            return weightFullHealth;
         }
     }
 

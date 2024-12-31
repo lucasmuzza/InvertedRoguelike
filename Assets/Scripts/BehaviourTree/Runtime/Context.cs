@@ -6,27 +6,33 @@ using UnityEngine.AI;
 // The context is a shared object every node has access to.
 // Commonly used components and subsytems should be stored here
 public class Context {
-    public GameObject aiAgent;
     public GameObject target;
-    public Transform transform;
+
+    public GameObject aiAgent;
+    public EnemyStatusHandler enemyStatusHandler;
+    public EnemyHealthHandler enemyHealthHandler;
+    public EnemyAttackHandler enemyAttackHandler;
+    public EnemyMovementHandler enemyMovementHandler;
     public Animator animator;
-    public Rigidbody physics;
-    public NavMeshAgent agent;
-    public SphereCollider sphereCollider;
+    public Rigidbody2D rb;
     public BoxCollider boxCollider;
-    public CapsuleCollider capsuleCollider;
-    public CharacterController characterController;
+
     // Add other game specific systems here
 
     public static Context CreateFromGameObject(GameObject gameObject) {
         // Fetch all commonly used components
         Context context = new Context();
         context.aiAgent = gameObject;
-        context.transform = gameObject.transform;
+
+        context.enemyAttackHandler = gameObject.GetComponent<EnemyAttackHandler>();
+        context.enemyHealthHandler = gameObject.GetComponent<EnemyHealthHandler>();
+        context.enemyStatusHandler = gameObject.GetComponent<EnemyStatusHandler>();
+        context.enemyMovementHandler = gameObject.GetComponent<EnemyMovementHandler>();
+
         context.animator = gameObject.GetComponent<Animator>();
-        context.physics = gameObject.GetComponent<Rigidbody>();
-        context.agent = gameObject.GetComponent<NavMeshAgent>();
-        context.boxCollider = gameObject.GetComponent<BoxCollider>();        
+        context.rb = gameObject.GetComponent<Rigidbody2D>();
+        context.boxCollider = gameObject.GetComponent<BoxCollider>();
+               
 
         return context;
     }
