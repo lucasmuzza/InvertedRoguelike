@@ -18,7 +18,7 @@ public class HealthChecker : Condition {
         }
 
         // Calculate the percentage of health
-        healthPercentage = context.enemyHealthHandler.health.GetHealthPercent();
+        // healthPercentage = context.enemyHealthHandler.health.GetHealthPercent();
 
         if (healthPercentage <= lowHealthThreshold){
             return true; // Low health case

@@ -1,0 +1,225 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9138437995939116097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5bfa09a911fc9a449570ad59b1a29f3, type: 3}
+  m_Name: BasicAttackOption
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: caca3303d8557844f87af9399e9b0fbe
+  position: {x: 150, y: 363}
+  blackboard:
+    agent: {fileID: 0}
+    target: {fileID: 0}
+    currentAttackDistance: 0
+  description: 
+  drawGizmos: 0
+  children:
+  - {fileID: -8491858168368073797}
+  conditions:
+  - rid: 4415468436714946629
+  - rid: 4415468436714946630
+  requireAllConditions: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 4415468436714946629
+      type: {class: AttackCooldownChecker, ns: , asm: Assembly-CSharp}
+      data:
+        blackboard:
+          agent: {fileID: 0}
+          target: {fileID: 0}
+          currentAttackDistance: 0
+        isSpecialAttack: 1
+        weightSpecialAttack: 1
+        weightBasicAttack: 0.5
+    - rid: 4415468436714946630
+      type: {class: DistanceChecker, ns: , asm: Assembly-CSharp}
+      data:
+        blackboard:
+          agent: {fileID: 0}
+          target: {fileID: 0}
+          currentAttackDistance: 0
+        name: Distance Checker Condition
+        distanceToCheck: 0
+        weightWhenClose: 1
+        weightWhenFar: 0
+--- !u!114 &-8491858168368073797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 058eb26c3b299314781cd7925969955a, type: 3}
+  m_Name: Log
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 5dd07387e664e8842ac7b866c743168e
+  position: {x: 150, y: 537}
+  blackboard:
+    agent: {fileID: 0}
+    target: {fileID: 0}
+    currentAttackDistance: 0
+  description: 
+  drawGizmos: 0
+  message: special
+--- !u!114 &-7719803448852896618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 058eb26c3b299314781cd7925969955a, type: 3}
+  m_Name: Log
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 2921d5a5edd9d8346967ac20c3a8fdb2
+  position: {x: -173, y: 537}
+  blackboard:
+    agent: {fileID: 0}
+    target: {fileID: 0}
+    currentAttackDistance: 0
+  description: 
+  drawGizmos: 0
+  message: basic
+--- !u!114 &-7417586142546577103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb1c951875a619429cb582b1dde3115, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 3f2cd99eb2efc4e42a1897f429462652
+  position: {x: 0, y: 0}
+  blackboard:
+    agent: {fileID: 0}
+    target: {fileID: 0}
+    currentAttackDistance: 0
+  description: 
+  drawGizmos: 0
+  child: {fileID: -7308642969588511424}
+--- !u!114 &-7308642969588511424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7647042fb0b08ab4f9ccf4541964447f, type: 3}
+  m_Name: SequenceReasoner
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: a8b53be7ac87c6742ae88e21781a941c
+  position: {x: 0, y: 209}
+  blackboard:
+    agent: {fileID: 0}
+    target: {fileID: 0}
+    currentAttackDistance: 0
+  description: 
+  drawGizmos: 0
+  children:
+  - {fileID: 2013260939318930409}
+  - {fileID: -9138437995939116097}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 389dc15d7d5bed74faab742fa097ca3f, type: 3}
+  m_Name: test
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: -7417586142546577103}
+  treeState: 0
+  nodes:
+  - {fileID: -7417586142546577103}
+  - {fileID: -7308642969588511424}
+  - {fileID: 2013260939318930409}
+  - {fileID: -7719803448852896618}
+  - {fileID: -9138437995939116097}
+  - {fileID: -8491858168368073797}
+  blackboard:
+    agent: {fileID: 0}
+    target: {fileID: 0}
+    currentAttackDistance: 2
+--- !u!114 &2013260939318930409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b39611b2c6ae48547b885df8eb725b0c, type: 3}
+  m_Name: AttackOption
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 96f63349b4a39af4eac95a007e36bb81
+  position: {x: -173, y: 363}
+  blackboard:
+    agent: {fileID: 0}
+    target: {fileID: 0}
+    currentAttackDistance: 0
+  description: 
+  drawGizmos: 0
+  children:
+  - {fileID: -7719803448852896618}
+  conditions:
+  - rid: 4415468436714946627
+  - rid: 4415468436714946628
+  requireAllConditions: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 4415468436714946627
+      type: {class: DistanceChecker, ns: , asm: Assembly-CSharp}
+      data:
+        blackboard:
+          agent: {fileID: 0}
+          target: {fileID: 0}
+          currentAttackDistance: 0
+        name: Distance Checker Condition
+        distanceToCheck: 2
+        weightWhenClose: 1
+        weightWhenFar: 0
+    - rid: 4415468436714946628
+      type: {class: AttackCooldownChecker, ns: , asm: Assembly-CSharp}
+      data:
+        blackboard:
+          agent: {fileID: 0}
+          target: {fileID: 0}
+          currentAttackDistance: 0
+        isSpecialAttack: 0
+        weightSpecialAttack: 1
+        weightBasicAttack: 0.5

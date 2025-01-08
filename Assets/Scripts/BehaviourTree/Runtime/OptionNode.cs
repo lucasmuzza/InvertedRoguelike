@@ -3,8 +3,7 @@ using UnityEngine;
 
 public abstract class OptionNode: Node {
     [HideInInspector] public List<Node> children = new List<Node>();
-    [SerializeReference] public List<Condition> conditions;
-    
+    [SerializeReference] public List<Condition> conditions;    
     protected int current;
     public bool requireAllConditions = true;
 

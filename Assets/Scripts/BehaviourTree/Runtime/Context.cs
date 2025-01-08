@@ -8,30 +8,28 @@ using UnityEngine.AI;
 public class Context {
     public GameObject target;
 
-    public GameObject aiAgent;
-    public EnemyStatusHandler enemyStatusHandler;
-    public EnemyHealthHandler enemyHealthHandler;
-    public EnemyAttackHandler enemyAttackHandler;
-    public EnemyMovementHandler enemyMovementHandler;
+    public GameObject aiAgentObj;
+    public EnemyAIAgent enemyAIAgent;
+    public AICombatSystem aiAgentCombatSystem;
+    
     public Animator animator;
     public Rigidbody2D rb;
-    public BoxCollider boxCollider;
+    public BoxCollider2D boxCollider;
 
     // Add other game specific systems here
 
     public static Context CreateFromGameObject(GameObject gameObject) {
         // Fetch all commonly used components
         Context context = new Context();
-        context.aiAgent = gameObject;
+        context.aiAgentObj = gameObject;
 
-        context.enemyAttackHandler = gameObject.GetComponent<EnemyAttackHandler>();
-        context.enemyHealthHandler = gameObject.GetComponent<EnemyHealthHandler>();
-        context.enemyStatusHandler = gameObject.GetComponent<EnemyStatusHandler>();
-        context.enemyMovementHandler = gameObject.GetComponent<EnemyMovementHandler>();
-
+        context.enemyAIAgent = gameObject.GetComponent<EnemyAIAgent>();
+        context.aiAgentCombatSystem = new AICombatSystem();
+        context.aiAgentCombatSystem.Initialize(context.enemyAIAgent,context.enemyAIAgent.basicAttacks,context.enemyAIAgent.specialAttacks);
+        
         context.animator = gameObject.GetComponent<Animator>();
         context.rb = gameObject.GetComponent<Rigidbody2D>();
-        context.boxCollider = gameObject.GetComponent<BoxCollider>();
+        context.boxCollider = gameObject.GetComponent<BoxCollider2D>();
                
 
         return context;

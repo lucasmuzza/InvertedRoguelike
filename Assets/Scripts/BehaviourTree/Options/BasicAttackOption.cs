@@ -2,13 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackOption : OptionNode
+public class BasicAttackOption : OptionNode
 {
-    protected override void OnStart()
-    {
-        base.OnStart();
-    }
-
     protected override State OnUpdate() 
     {
         if(requireAllConditions)
@@ -27,11 +22,10 @@ public class AttackOption : OptionNode
 
                 child.Update();
             }
-            
             return State.Success;
         }
 
-        else if(!requireAllConditions)
+        else
         {
             foreach(Condition condition in conditions)
             {

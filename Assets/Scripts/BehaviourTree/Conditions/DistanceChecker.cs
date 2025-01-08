@@ -1,6 +1,8 @@
 using UnityEngine;
 
 public class DistanceChecker : Condition {
+    public string name = "Distance Checker Condition";
+    public float distanceToCheck;
     public float weightWhenClose = 1.0f;
     public float weightWhenFar = 0.0f;
 
@@ -11,7 +13,7 @@ public class DistanceChecker : Condition {
         }
 
         float distance = Vector2.Distance(blackboard.agent.transform.position, blackboard.target.transform.position);
-        return distance <= blackboard.currentAttackDistance;
+        return distance <= distanceToCheck;
     }
 
     // Add an additional method to calculate the weight based on distance
@@ -21,7 +23,7 @@ public class DistanceChecker : Condition {
         }
 
         float distance = Vector2.Distance(blackboard.agent.transform.position, blackboard.target.transform.position);
-        if (distance <= blackboard.currentAttackDistance){
+        if (distance <= distanceToCheck){
             return weightWhenClose;
         }
         else{
